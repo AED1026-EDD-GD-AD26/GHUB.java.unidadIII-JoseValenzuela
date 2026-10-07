@@ -1,26 +1,32 @@
 package pila;
-public class Nodo {
-    //atributo
+
+public class Nodo<T> {
+    
+    // atributo
     private T valor;
     private Nodo<T> siguiente;
 
-    //constructores
-    public Nodo(){
+    // constructor
+    public Nodo() {
         this.valor = null;
-        this.Nodo = null;
+        this.siguiente = null;
     }
-    //getter
-    public T getValor(){
+
+    // getter
+    public T getValor() {
         return valor;
     }
-    public Nodo<T> getSiguiente(){
+
+    public Nodo<T> getSiguiente() {
         return siguiente;
     }
-    //setter
-    public void setValor(T valor){
+
+    // setter
+    public void setValor(T valor) {
         this.valor = valor;
     }
-    public void setSiguiente(Nodo<T> siguiente){
+
+    public void setSiguiente(Nodo<T> siguiente) {
         this.siguiente = siguiente;
     }
 }
