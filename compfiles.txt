@@ -1,3 +1,4 @@
+./logica/Persona.java
 ./miPrincipal/Principal.java
 ./miTest/AppTest.java
 ./pila/Nodo.java

@@ -46,6 +46,9 @@ public class Pila<T> {
     }
 
     public void retirar(){
-
+        if(!esVacia()){
+            cabeza = cabeza.getSiguiente();
+            tamanio--;
+        }
     }
 }
