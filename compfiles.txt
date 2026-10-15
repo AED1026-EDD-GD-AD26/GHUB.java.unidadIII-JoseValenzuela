@@ -1,5 +1,7 @@
 ./logica/Persona.java
 ./miPrincipal/Principal.java
+./cola/Cola.java
+./cola/Nodo.java
 ./miTest/AppTest.java
 ./pila/Nodo.java
 ./pila/Pila.java

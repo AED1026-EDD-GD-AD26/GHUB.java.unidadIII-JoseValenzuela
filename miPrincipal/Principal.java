@@ -1,6 +1,7 @@
 package miPrincipal;
 import java.util.Stack;
 
+import cola.Cola;
 import logica.Persona;
 import pila.Pila;
 
@@ -67,5 +68,40 @@ public class Principal {
         if(!p3.empty()){
             System.out.println("Cima de p3: "+p3.peek());
         }
+
+        System.out.println("******************************");
+        System.out.println("DEMOSTRACION DE LA CLASE COLA");
+        System.out.println("******************************");
+
+        Cola<Integer> cola = new Cola<Integer>();
+        System.out.println("¿La cola esta vacia? "+cola.esVacia());
+        cola.encolar(10);
+        cola.encolar(35);
+        cola.encolar(12);
+        cola.encolar(7);
+        System.out.println("¿La cola esta vacia? "+cola.esVacia());
+        System.out.println("Tamaño de cola: "+cola.getTamanio());
+        System.out.println("El siguiente elemento a atender: "+cola.frente());
+        cola.desencolar();
+        System.out.println("El siguiente elemento a atender: "+cola.frente());
+        cola.desencolar();
+        cola.desencolar();
+        System.out.println("El siguiente elemento a atender: "+cola.frente());
+        System.out.println("Tamaño de cola: "+cola.getTamanio());
+        cola.desencolar();
+        System.out.println("El siguiente elemento a atender: "+cola.frente());
+        System.out.println("Tamaño de cola: "+cola.getTamanio());
+
+        Cola<Persona> colaPersona = new Cola<Persona>();
+        Persona pers1 = new Persona("Maria", 5);
+        Persona pers2 = new Persona("Juan", 3);
+        Persona pers3 = new Persona("Emilio", 2);
+
+        colaPersona.encolar(pers3);
+        colaPersona.encolar(pers1);
+        colaPersona.encolar(pers2);
+        System.out.println("Al frente de la cola cola esta: "+colaPersona.frente());
+        colaPersona.desencolar();
+        System.out.println("Al frente de la cola cola esta: "+colaPersona.frente());
     }
 }

@@ -41,4 +41,29 @@ public class Cola<T> {
         }
         tamanio++;
     }
+    //desencolar un elemento
+    public void desencolar(){
+        //si no esta vacia
+        if(!esVacia()){
+            //verificar si hay un solo elemto en la cola
+            if(cabeza == cola){
+                cabeza = null;
+                cola = null;
+            }else{
+                //hay mas de un elemento en la cola
+                //se elimina el primer elemento de la cola
+                //desplazando la cabeza al siguiente nodo
+                cabeza = cabeza.getSiguiente();
+            }
+            tamanio --;
+        }
+    }
+    //devuleve el primer elemento de la cola
+    public T frente(){
+        if(esVacia()){
+            return null;
+        }else{
+            return cabeza.getValor();
+        }
+    }
 }
