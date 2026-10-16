@@ -1,16 +1,21 @@
 package miPrincipal;
-import java.util.Stack;
 
+import java.util.Stack;
 import cola.Cola;
 import logica.Persona;
 import pila.Pila;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Principal {
 
     public static void main(String[] args) {
+
         System.out.println("******************************");
         System.out.println("DEMOSTRACION DE USO CLASE PILA");
         System.out.println("******************************");
+
         Pila<Integer> p1 = new Pila<Integer>();
         System.out.println("¿La pila p1 esta vacia? "+p1.esVacia());
         p1.apilar(10);
@@ -103,5 +108,41 @@ public class Principal {
         System.out.println("Al frente de la cola cola esta: "+colaPersona.frente());
         colaPersona.desencolar();
         System.out.println("Al frente de la cola cola esta: "+colaPersona.frente());
+
+        System.out.println("*****************************************");
+        System.out.println("DEMOSTRACION DE USO DE LA INTERFACE QUEUE");
+        System.out.println("*****************************************");
+
+        Queue<String> micola = new LinkedList<String>() ;
+        micola.add("elemento 0");
+        micola.add("elemento 1");
+        micola.add("elemento 2");
+        System.out.println("Tamaño de micola: "+micola.size());
+        System.out.println("Proximo elemento a atender: "+micola.peek());
+        System.out.println("Atiendo y despacho al elemento de la cola: "+micola.remove());
+        System.out.println("Proximo elemento a atender: "+micola.peek());
+        System.out.println("Atiendo y despacho al elemento de la cola: "+micola.remove());
+        System.out.println("Proximo elemento a atender: "+micola.peek());
+        System.out.println("Atiendo y despacho al elemento de la cola: "+micola.remove());
+        System.out.println("Proximo elemento a atender: "+micola.peek());
+
+        Queue<Persona> colaGente = new LinkedList<>();
+        colaGente.add(pers1);
+        colaGente.add(pers2);
+        colaGente.add(pers3);
+        System.out.println("La persona: "+pers2.toString()+" se encuentra en la cola? "+colaGente.contains(pers2));
+        while (!colaGente.isEmpty()) {
+            System.out.println("Proximo elemento a atender: "+colaGente.remove());
+        }
+        System.out.println("Tamaño de colaGente: "+colaGente.size());
+        System.out.println("La persona: "+pers2.toString()+" se encuentra en la cola? "+colaGente.contains(pers2));
+
+        Queue<Integer> colaPrio = new PriorityQueue<Integer>();
+        colaPrio.add(10);
+        colaPrio.add(5);
+        colaPrio.add(3);
+        colaPrio.add(1);
+        System.out.println("Proximo elemento en salir: "+colaPrio.peek());
+
     }
 }
