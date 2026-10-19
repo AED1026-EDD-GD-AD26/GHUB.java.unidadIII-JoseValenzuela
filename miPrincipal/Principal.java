@@ -7,6 +7,8 @@ import pila.Pila;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Hashtable;
+import java.util.Enumeration;
 
 public class Principal {
 
@@ -74,9 +76,9 @@ public class Principal {
             System.out.println("Cima de p3: "+p3.peek());
         }
 
-        System.out.println("******************************");
+        System.out.println("*****************************");
         System.out.println("DEMOSTRACION DE LA CLASE COLA");
-        System.out.println("******************************");
+        System.out.println("*****************************");
 
         Cola<Integer> cola = new Cola<Integer>();
         System.out.println("¿La cola esta vacia? "+cola.esVacia());
@@ -144,5 +146,32 @@ public class Principal {
         colaPrio.add(1);
         System.out.println("Proximo elemento en salir: "+colaPrio.peek());
 
+        System.out.println("***************************************************");
+        System.out.println("DEMOSTRACION DE USO TABLAS DE DISPERSION: HASHTABLE");
+        System.out.println("***************************************************");
+
+        Hashtable<String,Persona> tabla = new Hashtable<String,Persona>();
+        //instancia a las personas que queremos almacenar
+        Persona per10 = new Persona("Pablo", 33, "Argentino");
+        Persona per11 = new Persona("Juan", 25, "Mexicano");
+        Persona per12 = new Persona("Pedro",28,"Español");
+        //agregar a las personas a la tabla
+        tabla.put(per10.getNombre(), per10);
+        tabla.put(per11.getNombre(), per11);
+        tabla.put(per12.getNombre(), per12);
+        //operacion analizadora
+        System.out.println(tabla.get("Juan"));
+        System.out.println(tabla.get("Pedro"));
+        System.out.println(tabla.get("Pablo"));
+
+        System.out.println(tabla.get("Simon"));
+
+        String aux;
+        Enumeration<String> claves = tabla.keys();
+        while (claves.hasMoreElements()) {
+            aux = claves.nextElement();
+            System.out.println(aux+" = "+tabla.get(aux));
+        }
+        System.out.println();
     }
 }
