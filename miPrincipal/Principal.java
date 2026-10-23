@@ -2,13 +2,17 @@ package miPrincipal;
 
 import java.util.Stack;
 import cola.Cola;
+import lista.Lista;
+import lista.PosicionIlegalException;
 import logica.Persona;
 import pila.Pila;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Hashtable;
+import java.text.ParseException;
 import java.util.Enumeration;
+import lista.Lista;
 
 public class Principal {
 
@@ -173,5 +177,29 @@ public class Principal {
             System.out.println(aux+" = "+tabla.get(aux));
         }
         System.out.println();
+
+        System.out.println("**********************************************");
+        System.out.println("DEMOSTRACION DE UNA LISTA SIMPLEMENTE ENLAZADA");
+        System.out.println("**********************************************");
+
+        Lista<Integer> lista_enteros = new Lista<>();
+        lista_enteros.agregar(10);
+        lista_enteros.agregar(25);
+        lista_enteros.agregar(30);
+        try{
+        //imprimir elementos
+        System.out.println("Dato que esta en laposicion 2: "+lista_enteros.getValor(2));
+        System.out.println("Dato que esta en laposicion 2: "+lista_enteros.getValor(1));
+        System.out.println("Dato que esta en laposicion 2: "+lista_enteros.getValor(0));
+        lista_enteros.insertar(30, 3);
+        System.out.println("Dato que esta en laposicion 3: "+lista_enteros.getValor(3));
+        lista_enteros.insertar(12, 1);
+        System.out.println("Recorrer todos los elementos de lista: ");
+        for(int i = 0; i < lista_enteros.getTamanio(); i++){
+            System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
+        }
+        }catch(PosicionIlegalException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -97,7 +97,30 @@ public class Lista<T> {
     }
 
     //elimina un nodo en una posicion determinada
-    public void remover(int pos){
+    public void remover(int pos) throws PosicionIlegalException{
+        if(pos >= 0 && pos< tamanio){
+            if(pos == 0){
+                //eliminar al principio de la lista
+                cabeza = cabeza.getSiguiente();
+                tamanio--;
+            }else{
+                Nodo<T> aux = cabeza;
+                for(int i = 0; i < pos-1 ; i++){
+                    aux = aux.getSiguiente();
 
+                }
+                Nodo<T> prox = aux.getSiguiente();
+                aux.setSiguiente(prox.getSiguiente());
+                tamanio--;
+            }
+        }else{
+            throw new PosicionIlegalException();
+        }
+    }
+
+    //elimina todos los nodos de la lista
+    public void limpiar(){
+        cabeza = null;
+        tamanio = 0;
     }
 }

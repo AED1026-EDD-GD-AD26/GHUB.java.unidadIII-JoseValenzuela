@@ -3,5 +3,8 @@
 ./cola/Cola.java
 ./cola/Nodo.java
 ./miTest/AppTest.java
+./lista/Nodo.java
+./lista/PosicionIlegalException.java
+./lista/Lista.java
 ./pila/Nodo.java
 ./pila/Pila.java
