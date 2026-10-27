@@ -198,8 +198,27 @@ public class Principal {
         for(int i = 0; i < lista_enteros.getTamanio(); i++){
             System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
         }
+        lista_enteros.remover(1);
+
+        for(int i = 0; i < lista_enteros.getTamanio(); i++){
+            System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
+        }
+        lista_enteros.remover(3);
+
+        for(int i = 0; i < lista_enteros.getTamanio(); i++){
+            System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
+        }
+        lista_enteros.limpiar();
+
+        System.out.println("Recorrer todos los elementos de la lista despues de limpiar");
+        for(int i = 0; i < lista_enteros.getTamanio(); i++){
+            System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
+        }
+        
         }catch(PosicionIlegalException e){
             System.out.println(e.getMessage());
         }
+        //falta probar los remover y el limpiar
+
     }
 }
