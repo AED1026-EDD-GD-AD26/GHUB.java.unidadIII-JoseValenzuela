@@ -13,6 +13,9 @@ import java.util.Hashtable;
 import java.text.ParseException;
 import java.util.Enumeration;
 import lista.Lista;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Principal {
 
@@ -214,11 +217,61 @@ public class Principal {
         for(int i = 0; i < lista_enteros.getTamanio(); i++){
             System.out.println("Elemento: "+i+" : "+lista_enteros.getValor(i));
         }
-        
+
         }catch(PosicionIlegalException e){
             System.out.println(e.getMessage());
         }
-        //falta probar los remover y el limpiar
 
+        System.out.println("**********************************************");
+        System.out.println("DEMOSTRACION DE USO DE: LinkedList y ArrayList");
+        System.out.println("**********************************************");
+        
+        try{
+            List<Integer> lista_enteros2 = new LinkedList<>();
+            List<Integer> lista_enteros3 = new ArrayList<>();
+            //agregar elementos a la lista enlazada
+            lista_enteros2.add(12);
+            lista_enteros2.add(15);
+            lista_enteros2.add(20);
+            System.out.println("Dato en la posicion 0: "+lista_enteros2.get(0));
+            System.out.println("Dato en la posicion 1: "+lista_enteros2.get(1));
+            System.out.println("Dato en la posicion 2: "+lista_enteros2.get(2));
+            lista_enteros2.add(1,13);
+            lista_enteros2.add(3,16);
+            System.out.println("Recorre la lista despues de las inserciones");
+            for(int i = 0; i < lista_enteros2.size(); i++){
+                System.out.println("Dato en la posicion "+i+" : "+lista_enteros2.get(i));
+            }
+            lista_enteros2.remove(0);
+            lista_enteros2.remove(3);
+            System.out.println("Recorre la lista despues de las eliminaciones");
+            for(int i = 0; i < lista_enteros2.size(); i++){
+                System.out.println("Dato en la posicion "+i+" : "+lista_enteros2.get(i));
+            }
+            System.out.println("Recorre la lista utilizando iteradores");
+            for(Integer aux1 : lista_enteros2){
+                System.out.println("Dato: "+aux1);
+            }
+
+            //insertar algunos elementos al arrayList
+            lista_enteros3.add(10);
+            lista_enteros3.add(15);
+            lista_enteros3.add(24);
+            System.out.println("Recorre el ArrayList");
+            for(int i = 0; i < lista_enteros3.size(); i++){
+                System.out.println("Dato en la posicion "+i+" : "+lista_enteros3.get(i));
+            }
+            //modificar un elemento
+            lista_enteros3.set(0,100);
+            System.out.println("El elemento 0, despues del reemplazo: "+lista_enteros3.get(0));
+            //System.out.println("Valor del elemento 4: "+lista_enteros3.get(3));
+            System.out.println(lista_enteros3.indexOf(15));
+            System.out.println(lista_enteros3.indexOf(150));
+            System.out.println(lista_enteros3.getLast());
+            System.out.println(lista_enteros3.getFirst());
+
+        }catch(Exception e){
+            System.out.println("Ocurrio un error: "+e.getMessage());
+        }
     }
 }
