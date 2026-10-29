@@ -1,4 +1,6 @@
 ./logica/Persona.java
+./listaDeContactos/ListaDeContactos.java
+./listaDeContactos/Contacto.java
 ./miPrincipal/Principal.java
 ./cola/Cola.java
 ./cola/Nodo.java
