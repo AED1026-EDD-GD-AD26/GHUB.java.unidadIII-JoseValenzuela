@@ -68,8 +68,14 @@ public class ListaDeContactos {
         Contacto con = buscarContacto(nombres, apellidos);
         if(con == null){
             return false;
-        }else{
-            return true;
         }
+        //modificamos
+        con.setNombres(nombres);
+        con.setApellidos(apellidos);
+        con.setDireccion(direccion);
+        con.setCorreo(correo);
+        con.setTelefono(telefono);
+        con.setCelular(celular);
+        return true;
     }
 }

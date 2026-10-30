@@ -70,8 +70,8 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "[nombres=" + nombres + ", apellidos=" + apellidos + ", direccion=" + direccion
-                + ", correo=" + correo + ", telefono=" + telefono + ", celular=" + celular + "]";
+        return nombres + " , " + apellidos + " , " + direccion
+                + " , " + correo + " , " + telefono + " , " + celular;
     }
 
 }
