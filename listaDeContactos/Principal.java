@@ -5,6 +5,7 @@ import lista.Lista;
 
 public class Principal {
     public static void main(String[] args) {
+        /* 
         ListaDeContactos ldc = new ListaDeContactos();
         try{
             
@@ -57,5 +58,6 @@ public class Principal {
         }catch(PosicionIlegalException e){
             System.out.println("ocurrio un error: "+e.getMessage());
         }
+            */
     }
 }
