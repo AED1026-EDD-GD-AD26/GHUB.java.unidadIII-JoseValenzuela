@@ -1,4 +1,8 @@
+./listaDoble/Nodo.java
+./listaDoble/PosicionIlegalException.java
+./listaDoble/ListaDoble.java
 ./logica/Persona.java
+./listaDeContactos/Menu.java
 ./listaDeContactos/Principal.java
 ./listaDeContactos/ListaDeContactos.java
 ./listaDeContactos/Contacto.java

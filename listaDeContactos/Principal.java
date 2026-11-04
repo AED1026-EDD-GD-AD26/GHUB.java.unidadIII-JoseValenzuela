@@ -5,6 +5,8 @@ import lista.Lista;
 
 public class Principal {
     public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.iniciar();
         /* 
         ListaDeContactos ldc = new ListaDeContactos();
         try{

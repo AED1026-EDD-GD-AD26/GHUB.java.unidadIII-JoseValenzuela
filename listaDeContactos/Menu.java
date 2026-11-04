@@ -13,7 +13,8 @@ public class Menu {
         scanner = new Scanner(System.in);
     }
 
-    public void iniciar()throws PosicionIlegalException{
+    public void iniciar(){
+        try{
         boolean salir = false;
         while(!salir){
             mostrarOpciones();
@@ -43,6 +44,9 @@ public class Menu {
                     break;
             }
         }
+    }catch(PosicionIlegalException e){
+        System.out.println(e.getMessage());
+        }
     }
 
     private void mostrarOpciones(){
@@ -68,7 +72,7 @@ public class Menu {
             }
         }
 
-        String direccion = leerTexto("Proporciona la dirrecion: ");
+        String direccion = leerTexto("Proporciona la direcion: ");
         String correco = leerTexto("Proporciona el correo electronico: ");
         String telefono = leerTexto("Proporciona el telefono: ");
         String celular = leerTexto("Proporciona el celular: ");
@@ -83,10 +87,12 @@ public class Menu {
     private void eliminarContacto()throws PosicionIlegalException{
         String nombres;
         String apellidos;
+        Contacto con;
         while (true) {
             nombres = leerTexto("Proporciona nombre: ");
             apellidos = leerTexto("Proporciona apellidos: ");
-            if(listaDeContactos.buscarContacto(nombres, apellidos) == null){
+            con = listaDeContactos.buscarContacto(nombres, apellidos);
+            if(con != null){
                 break;
             }else{
                 System.out.println("El nombre: "+nombres+" y apellido: "+apellidos+" no existen, intente de nuevo");
@@ -101,15 +107,52 @@ public class Menu {
     }
 
     private void modificarContacto()throws PosicionIlegalException{
+        String nombres;
+        String apellidos;
+        Contacto con;
 
+        while (true) {
+            nombres = leerTexto("Proporciona nombre: ");
+            apellidos = leerTexto("Proporciona apellidos: ");
+            con = listaDeContactos.buscarContacto(nombres, apellidos);
+            if(con == null){
+                System.out.println("El contacto no existe, intente de nuevo");
+            }else{
+                break;
+            }
+        }
+
+        String direccion = leerTexto("Nueva direcion: ");
+        String correco = leerTexto("Nuevo correo electronico: ");
+        String telefono = leerTexto("Nuevo telefono: ");
+        String celular = leerTexto("Nuevo celular: ");
+
+        if(listaDeContactos.modificarContacto(nombres, apellidos, direccion, correco, telefono, celular)){
+            System.out.println("El contacto se modifico correctamente");
+        }else{
+            System.out.println("No fue posible modificar el contacto");
+        }
     }
 
-    private void buscarContacto()throws PosicionIlegalException{
+    private void buscarContacto() throws PosicionIlegalException {
+    String nombres = leerTexto("Proporciona nombre: ");
+    String apellidos = leerTexto("Proporciona apellidos: ");
 
+    Contacto con = listaDeContactos.buscarContacto(nombres, apellidos);
+
+    if (con != null) {
+        System.out.println("Contacto encontrado:");
+        System.out.println(con.toString());
+    } else {
+        System.out.println("No se encontro el contacto.");
+        }
     }
 
     private void mostrarTodosLosContactos()throws PosicionIlegalException{
-
+        Lista<Contacto> lista = listaDeContactos.mostrarTodosLosContactos();
+        for(int i = 0; i < lista.getTamanio(); i++){
+            System.out.println(" - "+lista.getValor(i).toString());
+        }
     }
 
     private int leerEntero(String mensaje){
