@@ -47,7 +47,8 @@ public class ListaDoble<T> {
             Nodo<T> nuevo = new Nodo<T>();
             nuevo.setValor(valor);
             if(pos == 0){
-                //el nodo a insertar esta al comienzo de la lsita
+                //esta enlaza la cabeza anterior por la nueva cabeza
+                cabeza.setAnterior(nuevo);
                 nuevo.setSiguiente(cabeza);
                 cabeza = nuevo;
             }else{
@@ -58,6 +59,7 @@ public class ListaDoble<T> {
                         aux = aux.getSiguiente();
                     }
                     aux.setSiguiente(nuevo);
+                    nuevo.setAnterior(aux);
                 }else{
                     //el nodo a insertar esta en medio
                     Nodo<T> aux = cabeza;
@@ -68,6 +70,8 @@ public class ListaDoble<T> {
                     Nodo<T>siguiente = aux.getSiguiente();
                     aux.setSiguiente(nuevo);
                     nuevo.setSiguiente(siguiente);
+                    nuevo.setAnterior(aux); //nueva
+                    siguiente.setAnterior(nuevo); //nueva
                 }
             }
             tamanio++;
@@ -105,20 +109,27 @@ public class ListaDoble<T> {
             if(pos == 0){
                 //eliminar al principio de la lista
                 cabeza = cabeza.getSiguiente();
+                cabeza.setAnterior(null);
                 tamanio--;
-            }else{
+            }else{ //eliminar en medio o al final
                 Nodo<T> aux = cabeza;
                 for(int i = 0; i < pos-1 ; i++){
                     aux = aux.getSiguiente();
 
                 }
                 Nodo<T> prox = aux.getSiguiente();
-                aux.setSiguiente(prox.getSiguiente());
-                tamanio--;
+                if(prox.getSiguiente() != null){
+                    prox.getSiguiente().setAnterior(aux);
+                    aux.setSiguiente(prox.getSiguiente());
+            }else{
+                //es el ultimo nodo
+                aux.setSiguiente(null);
+                }
+            tamanio--;
             }
         }else{
             throw new PosicionIlegalException();
-        }
+            }
     }
 
     //elimina todos los nodos de la lista
