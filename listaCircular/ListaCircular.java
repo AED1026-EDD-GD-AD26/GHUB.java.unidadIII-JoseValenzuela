@@ -1,10 +1,10 @@
 package listaCircular;
 
-public class Lista<T> {
+public class ListaCircular<T> {
     private Nodo<T> cabeza;
     private int tamanio;
 
-    public Lista(){
+    public ListaCircular(){
         cabeza = null;
         tamanio = 0;
     }
@@ -23,6 +23,7 @@ public class Lista<T> {
         Nodo<T> nuevo = new Nodo<T>();
         nuevo.setValor(valor);
         if(esVacia()){
+            nuevo.setSiguiente(cabeza);
             cabeza = nuevo;
         }else{
             //agregar al final de la lista
@@ -31,6 +32,7 @@ public class Lista<T> {
                 aux = aux.getSiguiente();
             }
             aux.setSiguiente(nuevo);
+            nuevo.setSiguiente(cabeza); //el siguiente del final apunta a la cabeza
         }
         tamanio++;
     }
