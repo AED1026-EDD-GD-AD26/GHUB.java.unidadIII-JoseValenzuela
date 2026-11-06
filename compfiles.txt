@@ -17,4 +17,4 @@
 ./pila/Pila.java
 ./listaCircular/Nodo.java
 ./listaCircular/PosicionIlegalException.java
-./listaCircular/Lista.java
+./listaCircular/ListaCircular.java

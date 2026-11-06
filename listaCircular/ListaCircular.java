@@ -46,17 +46,25 @@ public class ListaCircular<T> {
             Nodo<T> nuevo = new Nodo<T>();
             nuevo.setValor(valor);
             if(pos == 0){
-                //el nodo a insertar esta al comienzo de la lsita
+                //Buscar el ultimo nodo
+                Nodo<T> ultimo = cabeza;
+                while (ultimo.getSiguiente() != cabeza) {
+                    ultimo = ultimo.getSiguiente();
+                }
                 nuevo.setSiguiente(cabeza);
                 cabeza = nuevo;
+                //Enlazar el ultimo con la cabeza
+                ultimo.setSiguiente(cabeza);
             }else{
                 //el nodo a insertar va al final
                 if(pos==tamanio){
                     Nodo<T> aux = cabeza;
-                    while(aux.getSiguiente() != null){
+                    while(aux.getSiguiente() != cabeza){
                         aux = aux.getSiguiente();
                     }
                     aux.setSiguiente(nuevo);
+                    //enlazar el ultimo la cabezqa 
+                    nuevo.setSiguiente(cabeza);
                 }else{
                     //el nodo a insertar esta en medio
                     Nodo<T> aux = cabeza;
@@ -103,9 +111,17 @@ public class ListaCircular<T> {
         if(pos >= 0 && pos< tamanio){
             if(pos == 0){
                 //eliminar al principio de la lista
+                //buscar el ultimo nodo para enlazarlo con el nuevo nodo
+                Nodo<T> ultimo = cabeza;
+                while (ultimo.getSiguiente() != cabeza) {
+                    ultimo = ultimo.getSiguiente();
+                }
+                //desplaza la cabeza con el siguiente nodo 
                 cabeza = cabeza.getSiguiente();
+                //enlazamos el ultimo nodo con la nueva cabeza
+                ultimo.setSiguiente(cabeza);
                 tamanio--;
-            }else{
+            }else{ //en medio y al final
                 Nodo<T> aux = cabeza;
                 for(int i = 0; i < pos-1 ; i++){
                     aux = aux.getSiguiente();

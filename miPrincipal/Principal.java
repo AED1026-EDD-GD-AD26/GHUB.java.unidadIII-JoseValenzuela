@@ -16,6 +16,7 @@ import lista.Lista;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import listaCircular.ListaCircular;
 
 public class Principal {
 
@@ -270,6 +271,30 @@ public class Principal {
             System.out.println(lista_enteros3.getLast());
             System.out.println(lista_enteros3.getFirst());
 
+        }catch(Exception e){
+            System.out.println("Ocurrio un error: "+e.getMessage());
+        }
+
+        try{
+            ListaCircular<Integer> listacircular = new ListaCircular<>();
+            listacircular.agregar(2);
+            listacircular.agregar(4);
+            listacircular.agregar(6);
+            System.out.println("Recorrer la lista circular");
+            for(int i = 0; i < listacircular.getTamanio(); i++){
+                System.out.println("Elemento en la posicion "+i+" : "+listacircular.getValor(i));
+            }
+            listacircular.insertar(8, 0);
+            System.out.println("Mostrar los elementos de la Lista CIRCULAR despues de insertar al inicio");
+            for(int i = 0; i < listacircular.getTamanio(); i++){
+                System.out.println("Elemento en la posicion "+i+" : "+listacircular.getValor(i));
+            }
+            System.out.println();
+            listacircular.insertar(8, 4);
+            System.out.println("Mostrar los elementos de la Lista CIRCULAR despues de insertar al final");
+            for(int i = 0; i < listacircular.getTamanio(); i++){
+                System.out.println("Elemento en la posicion "+i+" : "+listacircular.getValor(i));
+            }
         }catch(Exception e){
             System.out.println("Ocurrio un error: "+e.getMessage());
         }
